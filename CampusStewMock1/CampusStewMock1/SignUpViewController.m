@@ -1,18 +1,18 @@
 //
-//  SignUpViewController.m
+//  SignupViewController.m
 //  CampusStewMock1
 //
-//  Created by Harry Rein on 6/1/13.
+//  Created by Alexander Chumbley on 6/1/13.
 //  Copyright (c) 2013 PPP.com. All rights reserved.
 //
 
-#import "SignUpViewController.h"
+#import "SignupViewController.h"
 
-@interface SignUpViewController ()
+@interface SignupViewController ()
 
 @end
 
-@implementation SignUpViewController
+@implementation SignupViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
