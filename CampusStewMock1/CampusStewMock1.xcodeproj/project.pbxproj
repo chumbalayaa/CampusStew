@@ -66,6 +66,7 @@
 		E1F8E152175AE7C80026AEE8 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F8E151175AE7C80026AEE8 /* SignUpViewController.m */; };
 		E1F8E155175AE7EC0026AEE8 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F8E154175AE7EC0026AEE8 /* TutorialViewController.m */; };
 		E1F8E158175AE80E0026AEE8 /* FacebookLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F8E157175AE80E0026AEE8 /* FacebookLogInViewController.m */; };
+		E1F8E15B175AF16A0026AEE8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F8E15A175AF16A0026AEE8 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,8 @@
 		E1F8E154175AE7EC0026AEE8 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		E1F8E156175AE80E0026AEE8 /* FacebookLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLogInViewController.h; sourceTree = "<group>"; };
 		E1F8E157175AE80E0026AEE8 /* FacebookLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLogInViewController.m; sourceTree = "<group>"; };
+		E1F8E159175AF16A0026AEE8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E1F8E15A175AF16A0026AEE8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,8 +244,6 @@
 				E135EAE0175AE040000D6C18 /* User */,
 				E135EADB175ADE10000D6C18 /* Events */,
 				E135EADC175ADE66000D6C18 /* Buying and Selling */,
-				7F674F0917593ECD007C7938 /* ProfileViewController.h */,
-				7F674F0A17593ECD007C7938 /* ProfileViewController.m */,
 				7F674ECC17593C73007C7938 /* Supporting Files */,
 			);
 			path = CampusStewMock1;
@@ -303,6 +304,8 @@
 		E135EADA175ADD50000D6C18 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				E1F8E159175AF16A0026AEE8 /* User.h */,
+				E1F8E15A175AF16A0026AEE8 /* User.m */,
 				7F674F0C1759421B007C7938 /* Item.h */,
 				7F674F0D1759421C007C7938 /* Item.m */,
 				E1A6D8E017599860009419F6 /* Event.h */,
@@ -314,10 +317,10 @@
 		E135EADB175ADE10000D6C18 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				E1A6D8E317599D17009419F6 /* EventsViewController.h */,
-				E1A6D8E417599D18009419F6 /* EventsViewController.m */,
 				7F674F0317593EA9007C7938 /* QuadViewController.h */,
 				7F674F0417593EA9007C7938 /* QuadViewController.m */,
+				E1A6D8E317599D17009419F6 /* EventsViewController.h */,
+				E1A6D8E417599D18009419F6 /* EventsViewController.m */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -336,6 +339,8 @@
 		E135EAE0175AE040000D6C18 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				7F674F0917593ECD007C7938 /* ProfileViewController.h */,
+				7F674F0A17593ECD007C7938 /* ProfileViewController.m */,
 				E135EAE1175AE0A6000D6C18 /* MakeItemViewController.h */,
 				E135EAE2175AE0A7000D6C18 /* MakeItemViewController.m */,
 				E135EADD175AE03B000D6C18 /* MakeEventViewController.h */,
@@ -545,6 +550,7 @@
 				E1F8E152175AE7C80026AEE8 /* SignUpViewController.m in Sources */,
 				E1F8E155175AE7EC0026AEE8 /* TutorialViewController.m in Sources */,
 				E1F8E158175AE80E0026AEE8 /* FacebookLogInViewController.m in Sources */,
+				E1F8E15B175AF16A0026AEE8 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

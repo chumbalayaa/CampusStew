@@ -8,11 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Item : NSObject {
-    
-   
-    
-}
+@interface Item : NSObject
 
 @property (readwrite, retain) NSString *image;
 @property (readwrite, retain) NSString *title;

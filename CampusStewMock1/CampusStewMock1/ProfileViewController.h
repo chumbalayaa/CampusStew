@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UITableViewDataSource>
+
+@property (weak, nonatomic) User *currentUser;
+
+- (IBAction)addEvent:(id)sender;
+- (IBAction)addItem:(id)sender;
+
+-(IBAction) backToUserUnwind:(UIStoryboardSegue *)sender;
 
 @end
+
