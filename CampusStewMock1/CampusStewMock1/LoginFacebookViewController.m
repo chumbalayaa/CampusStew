@@ -27,8 +27,10 @@
 {
     [super viewDidLoad];
     
-	// Do any additional setup after loading the view.
+    
+    
 }
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -63,6 +65,7 @@
     }
 }
 
+
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -74,7 +77,25 @@
         // Customize the Log In View Controller
         logInViewController.delegate = self;
         logInViewController.facebookPermissions = @[@"friends_about_me"];
-        logInViewController.fields = PFLogInFieldsFacebook | PFLogInFieldsDismissButton; // Show  Facebook login, and a Dismiss button.
+        logInViewController.fields = PFLogInFieldsFacebook ;//| PFLogInFieldsDismissButton; // Show  Facebook login, and a Dismiss button.
+        
+        //CampusStew customization
+        [logInViewController.logInView setBackgroundColor: [UIColor redColor]];
+
+        //[logInViewController.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"MainBG.png"]]];
+        //[logInViewController.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo.png"]]];
+        
+        // Set buttons appearance
+        //[logInViewController.logInView.dismissButton setImage:[UIImage imageNamed:@"Exit.png"] forState:UIControlStateNormal];
+        //[logInViewController.logInView.dismissButton setImage:[UIImage imageNamed:@"ExitDown.png"] forState:UIControlStateHighlighted];
+        
+        //[logInViewController.logInView.facebookButton setImage:nil forState:UIControlStateNormal];
+        //[logInViewController.logInView.facebookButton setImage:nil forState:UIControlStateHighlighted];
+        //[logInViewController.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"FacebookDown.png"] forState:UIControlStateHighlighted];
+        //[logInViewController.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"Facebook.png"] forState:UIControlStateNormal];
+        //[logInViewController.logInView.facebookButton setTitle:@"" forState:UIControlStateNormal];
+        //[logInViewController.logInView.facebookButton setTitle:@"" forState:UIControlStateHighlighted];
+        
         
         // Present Log In View Controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
