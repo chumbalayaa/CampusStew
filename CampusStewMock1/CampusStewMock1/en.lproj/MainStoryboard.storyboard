@@ -11,7 +11,43 @@
                     <view key="view" contentMode="scaleToFill" id="tle-9E-yqk">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BSs-Du-46v">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="482" id="4hI-MS-FVO"/>
+                                </constraints>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Harry Rein" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFk-dy-vVM">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYP-nk-JaO">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="G6R-CG-o1t"/>
+                                    <constraint firstAttribute="height" constant="63" id="Pqt-LM-PIW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-Fq-s0y">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="7cC-4y-tRa"/>
+                                    <constraint firstAttribute="width" constant="82" id="Mic-q0-moV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HZd-Fq-s0y" firstAttribute="leading" secondItem="tle-9E-yqk" secondAttribute="leading" constant="8" id="3A8-BT-Nzj"/>
+                            <constraint firstItem="JFk-dy-vVM" firstAttribute="leading" secondItem="tle-9E-yqk" secondAttribute="leading" constant="108" id="9Lc-Pn-8vC"/>
+                            <constraint firstItem="BSs-Du-46v" firstAttribute="top" secondItem="tle-9E-yqk" secondAttribute="top" constant="71" id="9jG-e4-JQU"/>
+                            <constraint firstItem="HZd-Fq-s0y" firstAttribute="centerY" secondItem="JFk-dy-vVM" secondAttribute="centerY" type="default" id="CcN-ab-YMF"/>
+                            <constraint firstItem="LYP-nk-JaO" firstAttribute="top" secondItem="tle-9E-yqk" secondAttribute="top" constant="5" id="LRJ-GL-f73"/>
+                            <constraint firstItem="BSs-Du-46v" firstAttribute="trailing" secondItem="tle-9E-yqk" secondAttribute="trailing" type="default" id="bLm-zN-au1"/>
+                            <constraint firstItem="LYP-nk-JaO" firstAttribute="centerY" secondItem="JFk-dy-vVM" secondAttribute="centerY" type="default" id="ivP-Ze-REp"/>
+                            <constraint firstAttribute="trailing" secondItem="LYP-nk-JaO" secondAttribute="trailing" constant="13" id="lOz-vj-zdg"/>
+                            <constraint firstItem="BSs-Du-46v" firstAttribute="leading" secondItem="tle-9E-yqk" secondAttribute="leading" type="default" id="swD-yt-BsU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="BjY-Ar-7cF"/>
                 </viewController>
@@ -19,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="-515" y="-528"/>
         </scene>
-        <!--View Controller-->
+        <!--Make Event View Controller-->
         <scene sceneID="67r-8m-xkZ">
             <objects>
-                <viewController id="A44-ac-lcy" sceneMemberID="viewController">
+                <viewController id="A44-ac-lcy" customClass="MakeEventViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ahi-Sk-gjg">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,12 +67,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewg-Lc-sDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="-1094"/>
+            <point key="canvasLocation" x="432" y="-882"/>
         </scene>
-        <!--View Controller-->
+        <!--Make Item View Controller-->
         <scene sceneID="FR9-vb-ydL">
             <objects>
-                <viewController id="Xgp-fI-iVo" sceneMemberID="viewController">
+                <viewController id="Xgp-fI-iVo" customClass="MakeItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JBc-vN-Rbi">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -45,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSH-Tv-zzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="-561"/>
+            <point key="canvasLocation" x="422" y="-241"/>
         </scene>
         <!--Event Details-->
         <scene sceneID="HEC-zj-hTR">
@@ -328,10 +364,10 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="YO5-Rk-rdt" firstAttribute="top" secondItem="k4X-eD-kSj" secondAttribute="top" type="default" id="09B-B5-2LQ"/>
-                            <constraint firstItem="kwG-ov-XDe" firstAttribute="trailing" secondItem="k4X-eD-kSj" secondAttribute="trailing" type="default" id="0rg-oO-UBs"/>
                             <constraint firstItem="bU5-Ly-LJh" firstAttribute="leading" secondItem="k4X-eD-kSj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4G7-8N-D2B"/>
                             <constraint firstItem="sRt-Ju-P6X" firstAttribute="top" secondItem="k4X-eD-kSj" secondAttribute="top" constant="10" id="55c-yA-wMc"/>
                             <constraint firstItem="bU5-Ly-LJh" firstAttribute="top" secondItem="k4X-eD-kSj" secondAttribute="top" constant="221" id="BSv-4w-YR3"/>
+                            <constraint firstItem="kwG-ov-XDe" firstAttribute="trailing" secondItem="k4X-eD-kSj" secondAttribute="trailing" type="default" id="DVd-mU-L7J"/>
                             <constraint firstItem="kwG-ov-XDe" firstAttribute="bottom" secondItem="k4X-eD-kSj" secondAttribute="bottom" type="default" id="LPU-a3-dcq"/>
                             <constraint firstItem="YO5-Rk-rdt" firstAttribute="leading" secondItem="k4X-eD-kSj" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NF7-uJ-ZNp"/>
                             <constraint firstItem="bU5-Ly-LJh" firstAttribute="trailing" secondItem="sRt-Ju-P6X" secondAttribute="trailing" type="default" id="Sth-tM-Sud"/>
@@ -356,6 +392,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qv-Pq-Ln4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-50" y="145"/>
+        </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="rC1-hJ-lt9">
+            <objects>
+                <viewController id="kDC-UE-rrw" customClass="LogInViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tVi-vN-L77">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NdV-Nu-J0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1747" y="-1051"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="IJW-t7-5ov">
+            <objects>
+                <viewController id="s3U-9p-cfM" customClass="TutorialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8hU-kT-hAp">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1MA-07-VOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1341" y="-1037"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="4e4-U2-v26">
+            <objects>
+                <viewController id="OgM-aF-RqB" customClass="SignUpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dQP-bX-mWn">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOp-Sj-QFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1623" y="-299"/>
+        </scene>
+        <!--Facebook Log In View Controller-->
+        <scene sceneID="uw4-br-DWm">
+            <objects>
+                <viewController id="rVf-Np-Pn5" customClass="FacebookLogInViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mcm-E2-lWS">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7W3-xl-jqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-969" y="-1037"/>
         </scene>
         <!--Quad View Controller - The Quad-->
         <scene sceneID="n71-cy-EN9">
@@ -434,6 +526,9 @@
                 <relationship kind="outlet" name="sizzles" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="FacebookLogInViewController" superclassName="PFLogInViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FacebookLogInViewController.h"/>
+        </class>
         <class className="ItemToBeSoldViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemToBeSoldViewController.h"/>
             <relationships>
@@ -445,8 +540,20 @@
                 <relationship kind="outlet" name="itemTitle" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="LogInViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LogInViewController.h"/>
+        </class>
+        <class className="MakeEventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeEventViewController.h"/>
+        </class>
+        <class className="MakeItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeItemViewController.h"/>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PFLogInViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFLogInViewController.h"/>
         </class>
         <class className="ProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
@@ -457,11 +564,17 @@
                 <relationship kind="action" name="backToQuadUnwind:" candidateClass="UIStoryboardSegue"/>
             </relationships>
         </class>
+        <class className="SignUpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SignUpViewController.h"/>
+        </class>
         <class className="StoreViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StoreViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backToStoreUnwind:" candidateClass="UIStoryboardSegue"/>
             </relationships>
+        </class>
+        <class className="TutorialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialViewController.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
