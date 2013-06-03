@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Item : NSObject
+@interface Item : NSObject {
+    
+   
+    
+}
 
 @property (readwrite, retain) NSString *image;
 @property (readwrite, retain) NSString *title;
@@ -17,6 +21,8 @@
 @property (readwrite, retain) NSString *description;
 @property (readwrite, retain) NSString *price;
 @property (readwrite, retain) NSString *type;
+@property (readwrite) BOOL *sizzled;
+//@property (weak,nonatomic) UIButton *sizzleButton;
 
 -(id)initWithFormat : (NSString *)image andTitle: (NSString *) title andSeller: (NSString *) seller
         andContactInfo: (NSString *) contactInfo andDescription: (NSString *) description andPrice: (NSString *) price andType: (NSString *) type;

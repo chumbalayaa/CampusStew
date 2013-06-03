@@ -35,4 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+//------------------------Segues-----------------------------
+- (IBAction)goBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//------------------------End Segues--------------------------
 @end

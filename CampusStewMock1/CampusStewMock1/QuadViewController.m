@@ -11,7 +11,6 @@
 #import "EventsViewController.h"
 
 @interface QuadViewController (){    
-    NSArray *_events;
     Event *_event1;
     Event *_event2;
     Event *_event3;
@@ -34,6 +33,7 @@
     return self;
 }
 
+//-------------------------------SEGUE ACTIONS---------------------------------
 -(IBAction) backToQuadUnwind:(UIStoryboardSegue *)sender{
     //Unwind segue back to the Quad
     
@@ -41,6 +41,17 @@
     
     
 }
+
+-(IBAction) toStore:(id)sender{
+    [self performSegueWithIdentifier:@"toStore" sender:self];
+    
+}
+
+- (IBAction)toProfile:(id)sender {
+    [self performSegueWithIdentifier:@"quadToProfile" sender:self];
+}
+
+//------------------------------END SEGUE ACTIONS---------------------------------
 
 - (void)viewDidLoad
 {
@@ -56,7 +67,18 @@
     _event6 = [[Event alloc] initWithFormat:@"redSoloCupIcon" andTitle:@"DKE Party" andHost:@"The brothers of DKE" andLocation:@"233 Memorial Drive, Cambridge" andDescription:@"Should be a lot of fun. Bring a student ID. Only allowed in if over 250 lbs, no exceptions." andDay:@"September 30" andStartTime:@"9pm" andEndTime:@"2am" andType:@"Greek"];
     _event7 = [[Event alloc] initWithFormat:@"weedIcon" andTitle:@"Smoking by the river" andHost:@"Harry and Chums" andLocation:@"The Charles River" andDescription:@"I can throw down about a g on a blunt, match me with a 0.5 and you are in" andDay:@"Today" andStartTime:@"8pm" andEndTime:@"10pm" andType:@"HangOuts"];
     
-    _events = @[_event1,_event2,_event3,_event4,_event5,_event6,_event7];
+   // _events = @[_event1,_event2,_event3,_event4,_event5,_event6,_event7];
+    
+    //Set up the events
+    self.events = [NSMutableArray array];
+    [self.events addObject:_event1];
+    [self.events addObject:_event2];
+    [self.events addObject:_event3];
+    [self.events addObject:_event4];
+    [self.events addObject:_event5];
+    [self.events addObject:_event6];
+    [self.events addObject:_event7];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +92,7 @@
     return 1;
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_events count];
+    return [self.events count];
 }
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return @"The Quad";
@@ -80,13 +102,13 @@
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *eventcell  = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"eventToBeHeld"];
-    eventcell.textLabel.text = ((Event *) _events[indexPath.row]).title;
-
-    NSString *hours = [NSString stringWithFormat:@"%@ to %@",((Event *) _events[indexPath.row]).startTime,((Event *) _events[indexPath.row]).endtime];
+    eventcell.textLabel.text = ((Event *) self.events[indexPath.row]).title;
+    
+    NSString *hours = [NSString stringWithFormat:@"%@ to %@",((Event *) self.events[indexPath.row]).startTime,((Event *) self.events[indexPath.row]).endtime];
     eventcell.detailTextLabel.text = hours;
     
     UIImage *itemIcon;
-    itemIcon = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", ((Event *) _events[indexPath.row]).imageicon]];
+    itemIcon = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", ((Event *) self.events[indexPath.row]).imageicon]];
     eventcell.imageView.image = itemIcon;
     
     //Get rid of the blue selection that is the default
@@ -96,7 +118,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //set the current event to the chosen event
-    self.currentEvent = _events[indexPath.row];
+    self.currentEvent = self.events[indexPath.row];
     
     //segue to the events details page
     [self performSegueWithIdentifier:@"eventDetails" sender:self];
@@ -117,4 +139,28 @@
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

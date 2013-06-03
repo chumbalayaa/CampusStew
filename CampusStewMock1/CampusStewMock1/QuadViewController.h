@@ -12,6 +12,11 @@
 @interface QuadViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) Event *currentEvent;
+@property (readwrite) NSMutableArray *events;
 
--(IBAction) backToQuadUnwind:(UIStoryboardSegue *)sender;
+- (IBAction)toStore:(id)sender;
+- (IBAction)toProfile:(id)sender;
+
+//NOT YET USED
+- (IBAction) backToQuadUnwind:(UIStoryboardSegue *)sender;
 @end

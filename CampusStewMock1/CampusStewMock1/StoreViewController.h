@@ -12,7 +12,14 @@
 @interface StoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) Item *currentItem;
+@property (readwrite) NSMutableArray *items;
 
+
+- (IBAction)toQuad:(id)sender;
+- (IBAction)toProfile:(id)sender;
+- (void) sizzle: (id) sender;
+
+//NOT YET USED
 -(IBAction) backToStoreUnwind:(UIStoryboardSegue *)sender;
 
 @end

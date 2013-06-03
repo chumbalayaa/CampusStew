@@ -17,6 +17,9 @@
 @synthesize description;
 @synthesize price;
 @synthesize type;
+@synthesize sizzled;
+//@synthesize sizzleButton;
+
 
 
 -(id)initWithFormat:(NSString *)image1 andTitle:(NSString *)title1 andSeller:(NSString *)seller1 andContactInfo:(NSString *)contactInfo1 andDescription:(NSString *)description1 andPrice:(NSString *)price1 andType:(NSString *)type1 {
@@ -30,6 +33,10 @@
     [self setDescription:description1];
     [self setPrice:price1];
     [self setType:type1];
+    [self setSizzled:NO];
+//    sizzleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    sizzleButton.frame = CGRectMake(270.0, 10.0, 40.0, 40.0);
+    
     
     return self;
 }

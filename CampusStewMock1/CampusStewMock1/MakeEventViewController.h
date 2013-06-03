@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MakeEventViewController : UIViewController
+- (IBAction)goBack:(id)sender;
 
 @end

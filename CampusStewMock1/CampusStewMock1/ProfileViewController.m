@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 
+
 @interface ProfileViewController (){
     User *_user1;
     UIButton *_addEvent;
@@ -42,10 +43,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-//Segue back to page
--(IBAction) backToQuadUnwind:(UIStoryboardSegue *)sender{
-    
+//////////-----------------Segue back to page-------------------------------
+-(IBAction) backToUserUnwind:(UIStoryboardSegue *)sender{ //NOT USED
 }
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //Dont do anything just yet
+}
+
+//React to addEvent and addItem button presses
+-(IBAction)addEvent:(id)sender{
+    [self performSegueWithIdentifier:@"addEventSegue" sender:self];
+}
+-(IBAction)addItem: (id)sender{
+    [self performSegueWithIdentifier:@"addItemSegue" sender:self];
+}
+
+- (IBAction)dismissProfile:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//////////----------------------Table View Data and Delegate Functions------------------------------
 
 //Set up the Table View Elements
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -55,12 +73,11 @@
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;// FOR NOW
     
-    
     //future
     if (section ==0){
         
     }
-
+    
     
 }
 
@@ -82,10 +99,10 @@
     usercell.selectionStyle = UITableViewCellSelectionStyleNone;
     sizzlecell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-
-
     
-
+    
+    
+    
     if (indexPath.section==0){
         _addEvent = [UIButton buttonWithType:UIButtonTypeContactAdd];
         _addEvent.frame = CGRectMake(270.0, 15.0, 40.0, 40.0);
@@ -110,26 +127,6 @@
     return usercell;
 }
 
-
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
-    //Dont do anything just yet
-}
-
-
-
-//React to addEvent and addItem button presses
-
-
--(IBAction)addEvent:(id)sender{
-    [self performSegueWithIdentifier:@"addEventSegue" sender:self];
-    
-}
-
--(IBAction)addItem: (id)sender{
-    [self performSegueWithIdentifier:@"addItemSegue" sender:self];
-}
 
 
 

@@ -11,8 +11,6 @@
 #import "ItemToBeSoldViewController.h"
 
 @interface StoreViewController () {
-    
-    NSArray *_items;
     Item *_item1;
     Item *_item2;
     Item *_item3;
@@ -20,6 +18,7 @@
     Item *_item5;
     Item *_item6;
     Item *_item7;
+    UIButton *_sizzleButton;
 
     
 }
@@ -36,11 +35,37 @@
     }
     return self;
 }
-
--(IBAction) backToStoreUnwind:(UIStoryboardSegue *)sender{
-    //Used as the location by which we can segue back to
+//----------------------NAVIGATING SEGUE ACTIONS----------------------------------
+- (IBAction)toQuad:(id)sender {
+    [self performSegueWithIdentifier:@"toQuad" sender:self];
 }
 
+- (IBAction)toProfile:(id)sender {
+    [self performSegueWithIdentifier:@"storeToProfile" sender:self];
+}
+
+
+-(IBAction) backToStoreUnwind:(UIStoryboardSegue *)sender{
+    //NOT YET USED
+}
+
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"itemDetails"]){
+        StoreViewController *startingViewController;
+        ItemToBeSoldViewController *destinationViewController;
+        
+        startingViewController = (StoreViewController *) segue.sourceViewController;
+        destinationViewController = (ItemToBeSoldViewController *) segue.destinationViewController;
+        
+        //set up the next screen with the current item
+        destinationViewController.item = self.currentItem;
+    }
+    
+    
+}
+
+//-----------------------END OF SEGUES----------------------------------
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,7 +84,14 @@
     
     _item7 = [[Item alloc] initWithFormat:@"condomsImage" andTitle:@"Pack of condoms" andSeller:@"Danny" andContactInfo:@"404-201-0690" andDescription:@"No holes in any of the condoms." andPrice:@"$10" andType:@"Dorm Items"];
     
-    _items = @[_item1,_item2,_item3,_item4,_item5,_item6,_item7];
+    self.items = [NSMutableArray array];
+    [self.items addObject:_item1];
+    [self.items addObject:_item2];
+    [self.items addObject:_item3];
+    [self.items addObject:_item4];
+    [self.items addObject:_item5];
+    [self.items addObject:_item6];
+    [self.items addObject:_item7];
     
     
 }
@@ -71,12 +103,13 @@
 }
 
 
+//-------------------------Table View Elements and Protocol---------------------------
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_items count];
+    return [self.items count];
 }
 
 
@@ -86,12 +119,32 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: @"itemToBeSold"];
-    cell.textLabel.text = ((Item *) _items[indexPath.row]).title;
-    cell.detailTextLabel.text = ((Item *) _items[indexPath.row]).price;
+    
+    //Sets the text and detail text labels
+    cell.textLabel.text = ((Item *) self.items[indexPath.row]).title;
+    cell.detailTextLabel.text = ((Item *) self.items[indexPath.row]).price;
+    
     //Sets the image to the correct image
     UIImage *itemImage;
-    itemImage = [UIImage imageNamed: [NSString stringWithFormat: @"%@.png",((Item *) _items[indexPath.row]).image]];
+    itemImage = [UIImage imageNamed: [NSString stringWithFormat: @"%@.png",((Item *) self.items[indexPath.row]).image]];
     cell.imageView.image = itemImage;
+    
+    //Adds the sizzle button and its functionality
+    _sizzleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _sizzleButton.frame = CGRectMake(270.0, 10.0, 40.0, 40.0);
+    
+    //check if it should be sizzled or not
+    if (((Item *)(self.items[indexPath.row])).sizzled == NO){
+        [_sizzleButton setImage:[UIImage imageNamed:@"Sizzle Button(unsizzled).png"] forState:UIControlStateNormal];
+    }else{
+        [_sizzleButton setImage:[UIImage imageNamed:@"Sizzle Button(sizzled).png"] forState:UIControlStateNormal];
+    }
+    
+    
+    _sizzleButton.tag = indexPath.row;//add a tag to the item we are dealing with (tag is the row of the tagged element)
+    [_sizzleButton addTarget:self action:@selector(sizzle:) forControlEvents:UIControlEventTouchUpInside];
+    [cell addSubview:_sizzleButton];
+    
     
     //Get rid of highlighting
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -100,25 +153,25 @@
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //Set the current Item
-    self.currentItem = _items[indexPath.row];
+    self.currentItem = self.items[indexPath.row];
     [self performSegueWithIdentifier:@"itemDetails" sender:self];
 }
+//----------------------------End of Table View Elements------------------------------
 
 
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"itemDetails"]){
-        StoreViewController *startingViewController;
-        ItemToBeSoldViewController *destinationViewController;
-        
-        startingViewController = (StoreViewController *) segue.sourceViewController;
-        destinationViewController = (ItemToBeSoldViewController *) segue.destinationViewController;
-        
-        //set up the next screen with the current item
-        destinationViewController.item = self.currentItem;
-    }
+
+- (void) sizzle: (id) sender{
+    NSLog(@"We are trying to sizzle row %d",((UIControl *)sender).tag);
+    //grab the correct row
     
-
+    NSInteger row = ((UIControl *)sender).tag;
+    
+    //Change the value of the sizzle on that item
+    BOOL *newSizzleValue = ((Item *)[self.items objectAtIndex:((UIControl *)sender).tag]).sizzled;
+    ((Item *) self.items[row]).sizzled = newSizzleValue;
+    
+    
 }
 
 

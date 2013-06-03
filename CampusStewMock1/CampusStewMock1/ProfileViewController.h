@@ -16,6 +16,10 @@
 - (IBAction)addEvent:(id)sender;
 - (IBAction)addItem:(id)sender;
 
+- (IBAction)dismissProfile:(id)sender;
+
+
+//Not needed
 -(IBAction) backToUserUnwind:(UIStoryboardSegue *)sender;
 
 @end

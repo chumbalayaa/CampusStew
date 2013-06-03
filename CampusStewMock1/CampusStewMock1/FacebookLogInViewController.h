@@ -8,6 +8,11 @@
 
 #import <Parse/Parse.h>
 
-@interface FacebookLogInViewController : PFLogInViewController
+@interface FacebookLogInViewController : PFLogInViewController <PFLogInViewControllerDelegate>
+
+@property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
+
+
+- (IBAction)logoutTouchAction:(id)sender;
 
 @end
